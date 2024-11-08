@@ -9,21 +9,45 @@
  * @param {HTMLCanvasElement} canvas - L'élément canvas représentant la surface de jeu.
  * @returns {{x: number, y: number}} - Un objet contenant les coordonnées `x` et `y` de la nourriture générée.
  */
-function generateFood() {
-  // A compléter
-}
 
-/**
- * Dessine la nourriture sur le canvas à la position spécifiée.
- *
- * Cette fonction utilise le contexte de rendu 2D pour dessiner un rectangle représentant
- * la nourriture à l'emplacement indiqué par les coordonnées `x` et `y`. La taille du rectangle
- * est déterminée par la taille d'une case (box) sur la grille.
- *
- * @param {CanvasRenderingContext2D} ctx - Le contexte de rendu 2D du canvas utilisé pour dessiner.
- * @param {{x: number, y: number}} food - Un objet contenant les coordonnées `x` et `y` où la nourriture doit être dessinée.
- * @param {number} box - La taille d'une case de la grille en pixels, utilisée pour déterminer la taille de la nourriture.
- */
-function drawFood() {
-  // A compléter
+export class Food{
+  
+  constructor(x, y, color, sprite){
+  this.x = 0
+  this.y = 0
+  this.color = "red"
+  this.sprite = "ö"
+  }
+
+  static generateFood(box, canvas) {
+     //A compléter
+    randomX = getRandom
+    randomY = getRandom
+    Food.drawFood(randomX,randomY)
+  }
+  
+  /**
+   * Dessine la nourriture sur le canvas à la position spécifiée.
+   *
+   * Cette fonction utilise le contexte de rendu 2D pour dessiner un rectangle représentant
+   * la nourriture à l'emplacement indiqué par les coordonnées `x` et `y`. La taille du rectangle
+   * est déterminée par la taille d'une case (box) sur la grille.
+   *
+   * @param {CanvasRenderingContext2D} ctx - Le contexte de rendu 2D du canvas utilisé pour dessiner.
+   * @param {{x: number, y: number}} food - Un objet contenant les coordonnées `x` et `y` où la nourriture doit être dessinée.
+   * @param {number} box - La taille d'une case de la grille en pixels, utilisée pour déterminer la taille de la nourriture.
+   */
+  static drawFood(_x, _y) {
+    // A compléter
+    const apple = Object.create(Food)
+    apple.x = _x
+    apple.y = _y
+
+    const element = document.getElementById("gameCanvas");
+    element.innerHTML = apple;
+  }
+  
+}
+function getRandom() {
+  return Math.random(1, 400);
 }
