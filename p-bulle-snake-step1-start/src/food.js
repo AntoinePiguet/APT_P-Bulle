@@ -24,8 +24,6 @@ export class Food{
      const apple = Object.create(Food)
      apple.x = getRandom(box,canvas)
      apple.y = getRandom(box,canvas)
-
-     
     return apple
   }
   
