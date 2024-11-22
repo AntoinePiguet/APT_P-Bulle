@@ -15,8 +15,6 @@ export class Food{
   constructor(x, y, color, sprite){
   this.x = 0
   this.y = 0
-  this.color = "red"
-  this.sprite = "ö"
   }
 
  static generateFood(box, canvas) {

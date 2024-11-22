@@ -1,4 +1,4 @@
-import { initSnake, moveSnake, drawSnake } from "./snake.js";
+import { Snake } from "./snake.js";
 import { Food}from "./food.js";
 import { handleDirectionChange } from "./controls.js";
 import { checkCollision, checkWallCollision } from "./collision.js";
@@ -20,8 +20,7 @@ document.addEventListener("keydown", (event) => {
 
 
 function startGame() {
-  console.log("bonjour");
-  snake = initSnake();
+  snake = Snake.initSnake(box, ctx, snake);
   food = Food.generateFood(box,canvas);
 
   
