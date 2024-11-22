@@ -22,13 +22,14 @@ document.addEventListener("keydown", (event) => {
 function startGame() {
   console.log("bonjour");
   snake = initSnake();
-  food = Food.generateFood(box, canvas);
+  food = Food.generateFood(box,canvas);
+
   
   gameInterval = setInterval(draw, gameSpeed); // Stockage de l'identifiant de l'intervalle
 }
 
 function draw() {
-  // A compléter
+  Food.drawFood(box, ctx, food)
 }
 
 startGame();
