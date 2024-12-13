@@ -10,21 +10,20 @@
  * @returns {{x: number, y: number}} - Un objet contenant les coordonnées `x` et `y` de la nourriture générée.
  */
 
-export class Food{
-  
-  constructor(x, y, color, sprite){
-  this.x = 0
-  this.y = 0
+export class Food {
+  constructor(x, y, color, sprite) {
+    this.x = 0;
+    this.y = 0;
   }
 
- static generateFood(box, canvas) {
-     
-     const apple = Object.create(Food)
-     apple.x = getRandom(box,canvas)
-     apple.y = getRandom(box,canvas)
-    return apple
+  static generate(box, canvas) {
+    const apple = Object.create(Food);
+    apple.x = getRandom(box, canvas);
+    apple.y = getRandom(box, canvas);
+    console.log("generateFood");
+    return apple;
   }
-  
+
   /**
    * Dessine la nourriture sur le canvas à la position spécifiée.
    *
@@ -36,17 +35,17 @@ export class Food{
    * @param {{x: number, y: number}} food - Un objet contenant les coordonnées `x` et `y` où la nourriture doit être dessinée.
    * @param {number} box - La taille d'une case de la grille en pixels, utilisée pour déterminer la taille de la nourriture.
    */
-  static drawFood(box, ctx, food) {
+  static draw(box, ctx, food) {
     // A compléter
     ctx.fillStyle = "red";
     ctx.fillRect(food.x, food.y, box, box);
+    console.log("drawfood");
   }
-  
 }
 function getRandom(box, canvas) {
-  do{
-    var random =(Math.floor(Math.random() * (canvas.width / box - 0 + 1)) + 0 );
+  do {
+    var random = Math.floor(Math.random() * (canvas.width / box - 0 + 1)) + 0;
     random *= box;
-  }while(random > canvas)
+  } while (random > canvas);
   return random;
 }

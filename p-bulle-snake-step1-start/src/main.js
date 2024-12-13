@@ -1,5 +1,5 @@
 import { Snake } from "./snake.js";
-import { Food}from "./food.js";
+import { Food } from "./food.js";
 import { handleDirectionChange } from "./controls.js";
 import { checkCollision, checkWallCollision } from "./collision.js";
 import { drawScore } from "./score.js";
@@ -18,17 +18,25 @@ document.addEventListener("keydown", (event) => {
   direction = handleDirectionChange(event, direction);
 });
 
-
 function startGame() {
-  snake = Snake.initSnake(box, ctx, snake);
-  food = Food.generateFood(box,canvas);
 
+  snake = new Snake(200,200,"green");
+  food = Food.generate(box, canvas);
+
+  gameInterval = setInterval(frame, gameSpeed); // Stockage de l'identifiant de l'intervalle
   
-  gameInterval = setInterval(draw, gameSpeed); // Stockage de l'identifiant de l'intervalle
 }
-
+function frame() {
+  update(direction, snake)
+  draw()
+}
+function update(direction, snake) {
+  snake.move(direction, box);
+}
 function draw() {
-  Food.drawFood(box, ctx, food)
+  ctx.clearRect(0,0,canvas.width, canvas.height)
+  Food.draw(box, ctx, food);
+  snake.draw(box, ctx)
 }
 
 startGame();

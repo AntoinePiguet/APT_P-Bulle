@@ -1,3 +1,5 @@
+import { Food } from "./food";
+
 /**
  * Initialise le serpent au début du jeu.
  *
@@ -7,19 +9,13 @@
  * @returns {Array<{x: number, y: number}>} - Un tableau contenant un objet représentant la position du premier segment du serpent.
  */
 export class Snake {
-  constructor(x, y, color){
-    this.x = 0
-    this.y = 0
-    this.color = "green"
-    }
-
-  static initSnake(box, ctx, snake) {
-    let snake = Object.create(Snake)
-    snake.x = 200;
-    snake.y = 200;
-
-    this.drawSnake(box, ctx, snake)
+  constructor(x, y, color) {
+    this.x = x;
+    this.y = y;
+    this.color = color;
   }
+
+  
 
   /**
    * Déplace le serpent dans la direction actuelle.
@@ -33,19 +29,19 @@ export class Snake {
    * @param {number} box - La taille d'une case de la grille en pixels, utilisée pour déterminer la distance de déplacement du serpent.
    * @returns {{x: number, y: number}} - Un objet représentant les nouvelles coordonnées `x` et `y` de la tête du serpent après le déplacement.
    */
-   static moveSnake() {
-    if(direction == "LEFT"){
-      x -=box
+   move(direction, box) {
+    if (direction == "LEFT") {
+      this.x -= box;
+    } else if (direction == "RIGHT") {
+      this.x += box;
+    } else if (direction == "UP") {
+      this.y -= box;
+    } else if (direction == "DOWN") {
+      this.y += box;
     }
-    else if(direction == "RIGHT"){
-      x+=box
-    }
-    else if(direction == "UP"){
-      y+=box
-    }
-    else if(direction == "DOWN"){
-      y-=box
-    }
+    //if(this.x == Food.x && this.y == Food.y){
+      
+    //}
   }
 
   /**
@@ -60,10 +56,9 @@ export class Snake {
    * @param {Array<{x: number, y: number}>} snake - Un tableau représentant le serpent, où chaque élément est un segment avec des coordonnées `x` et `y`.
    * @param {number} box - La taille d'une case de la grille en pixels, utilisée pour déterminer la taille de chaque segment du serpent.
    */
-  static drawSnake(box, ctx, snake) {
-      
-      // A compléter
-      ctx.fillStyle = "green";
-      ctx.fillRect(snake.x, snake.y, box, box);
-    }
+  draw(box, ctx) {
+    // A compléter
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y, box, box);
+  }
 }

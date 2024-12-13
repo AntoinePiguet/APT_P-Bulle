@@ -25,3 +25,8 @@ J'ai lu plusieurs documents pour apprendre à faire du **mardown** ainsi que d'a
 	- [Mozilla](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
 	- [W3school](https://www.w3schools.com/js/js_htmldom_html.asp)
 	- [superuser](https://superuser.com/questions/586177/how-to-use-markdown-in-notepad)
+22.11.24
+
+	
+13.12.24
+
