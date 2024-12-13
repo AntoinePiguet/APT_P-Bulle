@@ -26,7 +26,21 @@ J'ai lu plusieurs documents pour apprendre à faire du **mardown** ainsi que d'a
 	- [W3school](https://www.w3schools.com/js/js_htmldom_html.asp)
 	- [superuser](https://superuser.com/questions/586177/how-to-use-markdown-in-notepad)
 22.11.24
+aujourdhui je vais :
+cloner le repo gitjournal etml, changer le type de fichier de config.js.exemple en config.js 
+aller sur le git, chopper un tocken, changer le nom de la const dans config.js
 
+[30min]
+J'ai cloné le gitjournal et fait le reste comme annoncé
+
+[3h]
+j'ai ajouté divers fonction à mon code, entre autes le fait que mes pommes peuvent spawn de manière alèatoire sans sortir du cadre.
+j'ai aussi ajouté les fonctionalités nécéssaires pour faire spawn mon snake. Mais il ne peut pas encore se déplacer.
 	
 13.12.24
+[2h20]
+j'ai restructuré toute ma classe snake pour ne plus avoir de fonctions statiques. J'ai aussi dû adapter mon main en fonction.
+j'ai aussi ajouté un système de boucle pour faire tourner le jeu et déplacer mon snake.
 
+[15min]
+j'ai du enlever mon tocken github de mon fichier notes.md car il refusait de push un secret github.

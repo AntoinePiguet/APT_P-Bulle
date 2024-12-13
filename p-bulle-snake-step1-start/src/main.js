@@ -3,6 +3,7 @@ import { Food } from "./food.js";
 import { handleDirectionChange } from "./controls.js";
 import { checkCollision, checkWallCollision } from "./collision.js";
 import { drawScore } from "./score.js";
+import { deathScreen } from "./score.js";
 const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -15,12 +16,12 @@ let score = 0;
 let gameInterval; // Variable pour stocker l'identifiant de l'intervalle
 
 document.addEventListener("keydown", (event) => {
-  direction = handleDirectionChange(event, direction);
+  direction = handleDirectionChange(event, direction, snake);
 });
 
 function startGame() {
 
-  snake = new Snake(200,200,"green");
+  snake = new Snake(200,200,"green", false);
   food = new Food(0,0, "red", false);
   food.generate(box, canvas)
 
@@ -32,6 +33,9 @@ function frame() {
 }
 function update(direction, snake) {
   snake.move(direction, box);
+  snake.checkWallCollision(canvas);
+  snake.checkFoodCollision(food)
+
 }
 function draw() {
   ctx.clearRect(0,0,canvas.width, canvas.height)

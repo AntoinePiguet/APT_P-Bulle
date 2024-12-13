@@ -10,3 +10,8 @@
 export function drawScore() {
   // A compléter
 }
+export function deathScreen(){
+   
+  let text = ["<h1>game over</h1>", "<button id = 'replay'>play again</button>"]
+  return text
+}

@@ -1,5 +1,5 @@
 import { Food } from "./food";
-
+import { deathScreen } from "./score";
 /**
  * Initialise le serpent au début du jeu.
  *
@@ -9,10 +9,11 @@ import { Food } from "./food";
  * @returns {Array<{x: number, y: number}>} - Un tableau contenant un objet représentant la position du premier segment du serpent.
  */
 export class Snake {
-  constructor(x, y, color) {
+  constructor(x, y, color, isDead) {
     this.x = x;
     this.y = y;
     this.color = color;
+    this.isDead = isDead;
   }
 
   
@@ -39,9 +40,6 @@ export class Snake {
     } else if (direction == "DOWN") {
       this.y += box;
     }
-    //if(this.x == Food.x && this.y == Food.y){
-      
-    //}
   }
 
   /**
@@ -60,5 +58,23 @@ export class Snake {
     // A compléter
     ctx.fillStyle = this.color;
     ctx.fillRect(this.x, this.y, box, box);
+  }
+  destroy(){
+    //clearInterval(gameInterval);
+    document.body.innerHTML = deathScreen();
+  }
+  checkWallCollision(canvas){
+    if(this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height){
+      this.destroy();
+    }
+  }
+  checkFoodCollision(food){
+    if(this.x == food.x && this.y == food.y){
+      food.destroy();
+      this.grow();
+    }
+  }
+  grow(){
+
   }
 }
