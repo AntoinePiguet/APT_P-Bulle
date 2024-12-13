@@ -21,10 +21,10 @@ document.addEventListener("keydown", (event) => {
 function startGame() {
 
   snake = new Snake(200,200,"green");
-  food = Food.generate(box, canvas);
+  food = new Food(0,0, "red", false);
+  food.generate(box, canvas)
 
   gameInterval = setInterval(frame, gameSpeed); // Stockage de l'identifiant de l'intervalle
-  
 }
 function frame() {
   update(direction, snake)
@@ -35,7 +35,7 @@ function update(direction, snake) {
 }
 function draw() {
   ctx.clearRect(0,0,canvas.width, canvas.height)
-  Food.draw(box, ctx, food);
+  food.draw(box, ctx, food);
   snake.draw(box, ctx)
 }
 

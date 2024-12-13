@@ -11,17 +11,15 @@
  */
 
 export class Food {
-  constructor(x, y, color, sprite) {
-    this.x = 0;
-    this.y = 0;
+  constructor(x, y, color) {
+    this.x = x;
+    this.y = y;
+    this.color = color
   }
 
-  static generate(box, canvas) {
-    const apple = Object.create(Food);
-    apple.x = getRandom(box, canvas);
-    apple.y = getRandom(box, canvas);
-    console.log("generateFood");
-    return apple;
+  generate(box, canvas) {
+    this.x = getRandom(box, canvas);
+    this.y = getRandom(box, canvas);
   }
 
   /**
@@ -35,11 +33,12 @@ export class Food {
    * @param {{x: number, y: number}} food - Un objet contenant les coordonnées `x` et `y` où la nourriture doit être dessinée.
    * @param {number} box - La taille d'une case de la grille en pixels, utilisée pour déterminer la taille de la nourriture.
    */
-  static draw(box, ctx, food) {
-    // A compléter
-    ctx.fillStyle = "red";
-    ctx.fillRect(food.x, food.y, box, box);
-    console.log("drawfood");
+  draw(box, ctx, food) {
+    ctx.fillStyle = this.color;
+    ctx.fillRect(this.x, this.y, box, box);
+  }
+  destroy(){
+    
   }
 }
 function getRandom(box, canvas) {
