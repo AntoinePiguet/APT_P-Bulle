@@ -65,3 +65,10 @@ j'ai modifié mon fichier notes.md pour avoir un meilleur markdown et aussi car 
 
 [15min]
 j'ai du installer et connecter mon compte aux outils nécéssaires pour commencer à coder.
+
+[3h]
+j'ai ajouté une fonction *drawScore* au fichier score, j'ai ajouté du contenu à ma fonction update pour empêcher les updates si le snake est mort,
+j'ai utilisé la fonction *checkFoodCollision* pour augmenter le score quand le snake mange une pomme,
+j'ai modifier la manière dont allait s'afficher l'écran de fin, j'ai permi d'enlever l'écran de fin quand on restart,
+
+j'ai modifié mon fichier notes.md et fait mon commit avant la fin de l'heure.
