@@ -61,18 +61,26 @@ export class Snake {
   }
   destroy(){
     //clearInterval(gameInterval);
-    document.body.innerHTML = deathScreen();
+    let position = document.getElementById("gameOverPosition")
+    position.innerHTML = deathScreen();
+    this.isDead = true;
   }
   checkWallCollision(canvas){
-    if(this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height){
+    let collision = false;
+    if(this.x <= 0 || this.x >= canvas.width || this.y <= 0 || this.y >= canvas.height){
       this.destroy();
+      collision = true;
     }
+    return collision;
   }
   checkFoodCollision(food){
+    let collision = false;
     if(this.x == food.x && this.y == food.y){
       food.destroy();
       this.grow();
+      collision = true
     }
+    return collision;
   }
   grow(){
 

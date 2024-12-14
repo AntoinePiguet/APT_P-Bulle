@@ -43,7 +43,7 @@ export class Food {
 }
 function getRandom(box, canvas) {
   do {
-    var random = Math.floor(Math.random() * (canvas.width / box - 0 + 1)) + 0;
+    var random = Math.floor(Math.random() * (canvas.width / box ));
     random *= box;
   } while (random > canvas);
   return random;

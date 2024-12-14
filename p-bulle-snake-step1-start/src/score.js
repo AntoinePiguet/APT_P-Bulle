@@ -7,11 +7,14 @@
  * @param {CanvasRenderingContext2D} ctx - Le contexte de rendu 2D du canvas utilisé pour dessiner.
  * @param {number} score - Le score à afficher, qui est un entier.
  */
-export function drawScore() {
-  // A compléter
+let scorePosition = document.getElementById("scorePosition")
+
+export function drawScore(score) {
+  let scoreText = "<div>score :  </div>" + score;
+  scorePosition.innerHTML = [scoreText]
 }
 export function deathScreen(){
    
-  let text = ["<h1>game over</h1>", "<button id = 'replay'>play again</button>"]
+  let text = ["<h1>game over</h1>" + "<button id = 'replay'>play again</button>"]
   return text
 }
