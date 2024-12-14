@@ -26,7 +26,7 @@ J'ai lu plusieurs documents pour apprendre à faire du **mardown** ainsi que d'a
 	- [W3school](https://www.w3schools.com/js/js_htmldom_html.asp)
 	- [superuser](https://superuser.com/questions/586177/how-to-use-markdown-in-notepad)
 22.11.24
-aujourdhui je vais :
+*aujourdhui je vais :*
 cloner le repo gitjournal etml, changer le type de fichier de config.js.exemple en config.js 
 aller sur le git, chopper un tocken, changer le nom de la const dans config.js
 
@@ -39,8 +39,29 @@ j'ai aussi ajouté les fonctionalités nécéssaires pour faire spawn mon snake.
 	
 13.12.24
 [2h20]
-j'ai restructuré toute ma classe snake pour ne plus avoir de fonctions statiques. J'ai aussi dû adapter mon main en fonction.
+j'ai restructuré toute ma classe *snake* pour ne plus avoir de fonctions statiques. J'ai aussi dû adapter mon main en fonction.
 j'ai aussi ajouté un système de boucle pour faire tourner le jeu et déplacer mon snake.
 
 [15min]
-j'ai du enlever mon tocken github de mon fichier notes.md car il refusait de push un secret github.
+j'ai du enlever mon token github de mon fichier notes.md car il refusait de push un secret github.
+
+[10min]
+j'ai restructuré ma classe *food* tout en adaptant mon *main*.
+
+[40 min]
+j'ai ajouté des fonctionnalités à ma classe snake pour qu'il puisse mourir si il touche un mur et qu'il détécte
+les colisions avec les food, et qu'il ne puisse pas tourner dans la direction contraire de la ou il se dirige.
+J'ai aussi créé un écran de fin.
+
+14.12.24
+
+[20min]
+scrum meeting : aujourd'hui je vais ajouter une methode _destroy_ à ma classe food ainsi qu'un moyen pour elle de respawn
+je vais ajouter une methode _grow_ à ma classe snake, pour lui permettre de grandir lorsqu'il mange une pomme.
+je vais adapter le reste de mon code pour éviter des erreurs comme les pommes qui spawn dans le snake et un moyen de relancer la partie.
+
+[10min]
+j'ai modifié mon fichier notes.md pour avoir un meilleur markdown et aussi car je n'avais pas fini de le remplir hier.
+
+[15min]
+j'ai du installer et connecter mon compte aux outils nécéssaires pour commencer à coder.
