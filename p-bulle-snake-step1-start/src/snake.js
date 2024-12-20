@@ -86,7 +86,6 @@ export class Snake {
     let collision = false;
     if (this.body[0].x == food.x && this.body[0].y == food.y) {
       food.destroy();
-      this.grow();
       collision = true
     }
     return collision;

@@ -72,3 +72,11 @@ j'ai utilisé la fonction *checkFoodCollision* pour augmenter le score quand le 
 j'ai modifié la manière dont allait s'afficher l'écran de fin, j'ai permi d'enlever l'écran de fin quand on restart,
 
 j'ai modifié mon fichier notes.md et fait mon commit avant la fin de l'heure.
+
+20.12.24
+[02:55]
+j'ai ajouté un tableau constructeur *body* à ma classe *snake* pour contenir le differentes positions du corps du snake.
+j'ai adapté mon code avec de nouvel ajout dans la methode *move*, *draw*, *checkWallColision*, *checkFoodColision*.
+
+j'ai ajouté une commande *unshift* à ma fonction *snake.move* pour actualiser la position de la tête.
+j'ai ajouté une commande *pop* à ma fonction *snake.move* pour supprimer la dernière position du bout du snake.
