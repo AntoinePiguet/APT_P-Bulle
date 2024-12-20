@@ -9,14 +9,16 @@ import { deathScreen } from "./score";
  * @returns {Array<{x: number, y: number}>} - Un tableau contenant un objet représentant la position du premier segment du serpent.
  */
 export class Snake {
-  constructor(x, y, color, isDead) {
-    this.x = x;
-    this.y = y;
+  constructor(headx, heady, color, isDead, box) {
+    this.body = [
+      { x: headx, y: heady },
+      { x: headx - box, y: heady }
+    ]
     this.color = color;
     this.isDead = isDead;
   }
 
-  
+
 
   /**
    * Déplace le serpent dans la direction actuelle.
@@ -30,15 +32,20 @@ export class Snake {
    * @param {number} box - La taille d'une case de la grille en pixels, utilisée pour déterminer la distance de déplacement du serpent.
    * @returns {{x: number, y: number}} - Un objet représentant les nouvelles coordonnées `x` et `y` de la tête du serpent après le déplacement.
    */
-   move(direction, box) {
+  move(direction, box, foodColision) {
+    let newHead = {x:this.body[0].x, y: this.body[0].y}
     if (direction == "LEFT") {
-      this.x -= box;
+      newHead.x -= box;
     } else if (direction == "RIGHT") {
-      this.x += box;
+      newHead.x += box;
     } else if (direction == "UP") {
-      this.y -= box;
+      newHead.y -= box;
     } else if (direction == "DOWN") {
-      this.y += box;
+      newHead.y += box;
+    }
+    this.body.unshift(newHead);
+    if(foodColision == false){
+      this.body.pop();
     }
   }
 
@@ -54,35 +61,34 @@ export class Snake {
    * @param {Array<{x: number, y: number}>} snake - Un tableau représentant le serpent, où chaque élément est un segment avec des coordonnées `x` et `y`.
    * @param {number} box - La taille d'une case de la grille en pixels, utilisée pour déterminer la taille de chaque segment du serpent.
    */
-  draw(box, ctx) {
+  draw(box, ctx, x, y) {
     // A compléter
     ctx.fillStyle = this.color;
-    ctx.fillRect(this.x, this.y, box, box);
+    for(let i = 0; i< this.body.length; i++){
+      ctx.fillRect(this.body[i].x, this.body[i].y, box, box);
+    }
   }
-  destroy(){
+  destroy() {
     //clearInterval(gameInterval);
     let position = document.getElementById("gameOverPosition")
     position.innerHTML = deathScreen();
     this.isDead = true;
   }
-  checkWallCollision(canvas){
+  checkWallCollision(canvas) {
     let collision = false;
-    if(this.x <= 0 || this.x >= canvas.width || this.y <= 0 || this.y >= canvas.height){
+    if (this.body[0].x <= 0 || this.body[0].x >= canvas.width || this.body[0].y <= 0 || this.body[0].y >= canvas.height) {
       this.destroy();
       collision = true;
     }
     return collision;
   }
-  checkFoodCollision(food){
+  checkFoodCollision(food) {
     let collision = false;
-    if(this.x == food.x && this.y == food.y){
+    if (this.body[0].x == food.x && this.body[0].y == food.y) {
       food.destroy();
       this.grow();
       collision = true
     }
     return collision;
-  }
-  grow(){
-
   }
 }
