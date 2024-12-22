@@ -11,16 +11,16 @@
  * @returns {string} - La nouvelle direction du serpent après traitement, ou la direction actuelle si le changement n'est pas valide.
  */
 export function handleDirectionChange(keyCode, direction, snake) {
-  if(keyCode.key == "ArrowLeft" && direction != "RIGHT") {
+  if(keyCode.key == "ArrowLeft" && direction != "RIGHT"|| keyCode.key == "a" && direction != "RIGHT") {
     direction = "LEFT"
 }
-else if(keyCode.key == "ArrowRight" && direction != "LEFT") {
+else if(keyCode.key == "ArrowRight" && direction != "LEFT"|| keyCode.key == "d" && direction != "LEFT") {
     direction = "RIGHT"
 }
-else if(keyCode.key == "ArrowUp"  && direction != "DOWN"){
+else if(keyCode.key == "ArrowUp" && direction != "DOWN" || keyCode.key == "w" && direction != "DOWN"){
   direction = "UP"
 }
-else if(keyCode.key == "ArrowDown" && direction != "UP"){
+else if(keyCode.key == "ArrowDown"  && direction != "UP"|| keyCode.key == "s" && direction != "UP"){
   direction = "DOWN"
 }
 return direction
