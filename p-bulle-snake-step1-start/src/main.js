@@ -51,6 +51,8 @@ function update(direction, snake) {
   snake.move(direction, box, foodColision);
   wallCollision = snake.checkWallCollision(canvas);
   if(foodColision){
+    food.generate(box, canvas);
+    food.draw(box, ctx, food);
     score++;
     foodColision = false;
   }
