@@ -77,7 +77,7 @@ export class Snake {
   }
   checkWallCollision(canvas) {
     let collision = false;
-    if (this.body[0].x <= 0 || this.body[0].x >= canvas.width || this.body[0].y <= 0 || this.body[0].y >= canvas.height) {
+    if (this.body[0].x <= -20 || this.body[0].x >= canvas.width || this.body[0].y <= -20 || this.body[0].y >= canvas.height) {
       this.destroy();
       collision = true;
     }

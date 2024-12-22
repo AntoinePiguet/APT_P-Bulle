@@ -8,7 +8,7 @@ const canvas = document.getElementById("gameCanvas");
 const ctx = canvas.getContext("2d");
 
 const box = 20;
-const gameSpeed = 200;
+const gameSpeed = 140;
 let snake;
 let food;
 let direction = "RIGHT";
@@ -70,5 +70,4 @@ function draw() {
   snake.draw(box, ctx, snake.x, snake.y)
   drawScore(score);
 }
-console.log("snake va commencer")
 startGame();
