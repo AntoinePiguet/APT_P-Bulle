@@ -47,6 +47,7 @@ export class Snake {
     if(foodColision == false){
       this.body.pop();
     }
+    this.checkBodyColision();
   }
 
   /**
@@ -85,9 +86,15 @@ export class Snake {
   checkFoodCollision(food) {
     let collision = false;
     if (this.body[0].x == food.x && this.body[0].y == food.y) {
-      food.destroy();
       collision = true
     }
     return collision;
+  }
+  checkBodyColision(){
+    for(let i = 0; i < this.body.length; i++){
+      if(this.body[0].x == this.body[i].x &&this.body[0].y == this.body[i].y){
+        this.destroy;
+      }
+    }
   }
 }
