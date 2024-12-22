@@ -91,9 +91,9 @@ export class Snake {
     return collision;
   }
   checkBodyColision(){
-    for(let i = 0; i < this.body.length; i++){
+    for(let i = 1; i < this.body.length; i++){
       if(this.body[0].x == this.body[i].x &&this.body[0].y == this.body[i].y){
-        this.destroy;
+        this.destroy();
       }
     }
   }
