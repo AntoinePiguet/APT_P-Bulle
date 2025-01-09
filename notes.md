@@ -80,3 +80,12 @@ j'ai adapté mon code avec de nouvel ajout dans la methode *move*, *draw*, *chec
 
 j'ai ajouté une commande *unshift* à ma fonction *snake.move* pour actualiser la position de la tête.
 j'ai ajouté une commande *pop* à ma fonction *snake.move* pour supprimer la dernière position du bout du snake.
+
+25.12.24
+[00:20]
+j'ai ajouté une commande *checkBodyCollision* pour tuer le snake si sa tête touche son propre corps.
+
+09.01.2025
+[03:00]
+j'ai commenté tout mon code, en passant des variables aux méthodes et aux lignes importantes.
+j'ai aussi supprimé la page *collision* car je ne l'utilisait pas vu que mes méthodes de vérification de collsiion se trouvent dans ma classe snake.
