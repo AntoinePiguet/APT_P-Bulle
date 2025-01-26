@@ -17,7 +17,7 @@ let score = 0;
 let start = true;
 let gameInterval; // Variable pour stocker l'identifiant de l'intervalle
 let foodColision;
-
+let saveScore = [];
 gameInterval = setInterval(frame, gameSpeed); // Stockage de l'identifiant de l'intervalle
 
 let wallCollision = false;
@@ -27,6 +27,7 @@ document.addEventListener("keydown", (event) => {
 
 //fonction permettant de commencer ou recommencer le jeu.
 function startGame() {
+
   //enlève l'écran de mort si le user appuie sur le bouton rejouer
   startScreen();
 
@@ -106,6 +107,12 @@ function update(direction, snake) {
     //cherche la coordonnée du bouton replay
     let replay = document.getElementById("replay")
 
+    //mets le score obtenu dans la partie dans un tableau
+    saveScore.push({score})
+    
+    //affiche le score de fin ainsi que les 5 meilleurs scores
+    afficherScoreFinDeJeu();
+  
     //relance le jeu si le bouton replay est cliqué
     replay.addEventListener("click", startGame)
     
@@ -128,5 +135,28 @@ function draw() {
   drawScore(score);
 }
 
+//fonction servant a afficher le score de fin de jeu ainsi que les 5 meilleurs scores de la session
+function afficherScoreFinDeJeu() {
+  //stocke les position des endroits ou les scores vont s'afficher
+  let scorePosition = document.getElementById("scorePosition")
+  let bestScorePosition = document.getElementById("bestScoresPosition")
+
+  //affiche le score de fin de la partie
+  scorePosition.innerHTML = ("Votre Score : " + saveScore.score)
+
+  //trie les scores du tableau contenant tous les scores
+  const sortedData = saveScore.sort((a, b) => b.score - a.score);
+  // garde uniquement les 5 meilleurs
+  const top5 = sortedData.slice(0, 5);
+  //stocke les 5 scores + un intitulé dans une liste html
+  const outputHTML = `
+  <ul>
+  <li> Les 5 meilleurs scores </li>
+    ${top5.map(item => `<li> - Score: ${item.score}</li>`).join("")}
+  </ul>
+`;
+//affiche les scores en remplacant le html de la balise bestScorePosition
+  bestScorePosition.innerHTML = outputHTML;
+}
 //commence le jeu après que le code ait été compilé
 startGame();
