@@ -1,7 +1,7 @@
 import { Snake } from "./snake.js";
 import { Food } from "./food.js";
 import { handleDirectionChange } from "./controls.js";
-import { drawScore } from "./score.js";
+import { drawScore, stopStopwatch, startStopwatch, resetStopwatch } from "./score.js";
 
 //déclaration des constantes
 const canvas = document.getElementById("gameCanvas");
@@ -30,6 +30,9 @@ function startGame() {
   //enlève l'écran de mort si le user appuie sur le bouton rejouer
   startScreen();
 
+  //reinitialise la stopwatch a 0
+  resetStopwatch();
+
   //initialisation de variables demandant à être reset à chaque fois que le jeu recommence
   start = true;
   score = 0;
@@ -45,6 +48,9 @@ function startGame() {
 
   //donne des coordonnées randoms à food
   food.generate(box, canvas)
+
+  //lance le chronomètre
+  startStopwatch();
 }
 
 //permet d'enlever l'écran de fin 
